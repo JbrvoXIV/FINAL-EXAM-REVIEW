@@ -78,8 +78,38 @@ public class ReviewOne {
     // prints all permutations of a given word. For example, given the word "may", it prints the following words:
     // may, mya, amy, aym, yam, yma
 
-    public static void printAllPermutation(String word){
-    
+    private static String[] helper(String word){
+        if(word.length() == 1) {
+            return new String[]{word};
+        }
+
+        int factorial = 1;
+        for(int i = 2; i <= word.length(); factorial *= i++);
+        String[] permutations = new String[factorial];
+        int current = 0;
+
+        for(int i = 0; i < word.length();i++) {
+            String shorter = word.substring(0, i) + word.substring(i+1); //all but the ith character
+            for(String shorterPermutation: helper(shorter))
+                permutations[current++] = (word.charAt(i) + shorterPermutation);
+        }
+        return permutations;
+    }
+
+    public static void printAllPermutations(String vals){
+        if(vals.isEmpty()) {
+            return;
+        }
+
+        String[] out = helper(vals);
+        Arrays.sort(out);
+        String prev = null;
+
+        for(String word: out) {
+            if(prev == null || !word.equals(prev)) {
+                System.out.println(prev = word);
+            }
+        }
     }
 
     public static void main(String[] args) {
@@ -105,8 +135,9 @@ public class ReviewOne {
 
         // (2) findRange
         Comparable[] sorted = new Comparable[]{1,2,5,5,5,5,5,5,8,9,9,9,9,10,11,12};
-        findRange(sorted, 9);
+        findRange(sorted, 4);
 
         // (3) printAllPermutation
+        printAllPermutations("abc");
     }    
 }
