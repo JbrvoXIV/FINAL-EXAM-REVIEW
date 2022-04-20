@@ -102,14 +102,22 @@ public class ReviewOne {
         }
 
         String[] out = helper(vals);
-        Arrays.sort(out);
-        String prev = null;
+        List<String> result = new ArrayList<String>(new HashSet<String>(Arrays.asList(out)));
+        Collections.sort(result);
 
-        for(String word: out) {
-            if(prev == null || !word.equals(prev)) {
-                System.out.println(prev = word);
-            }
+        // NEW CODE WITH SET USAGE
+        for(String str : result) {
+            System.out.printf("%s\n", str);
         }
+
+        // OLD CODE W/O SET USAGE
+        // String prev = null;
+
+        // for(String word: out) {
+        //     if(prev == null || !word.equals(prev)) {
+        //         System.out.println(prev = word);
+        //     }
+        // }
     }
 
     public static void main(String[] args) {
