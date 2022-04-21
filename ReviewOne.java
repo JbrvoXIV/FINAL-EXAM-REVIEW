@@ -120,6 +120,8 @@ public class ReviewOne {
         // }
     }
 
+    
+
     public static void main(String[] args) {
         // (1) specialRemove 
         LinkedList<String> list = new LinkedList<String>();
@@ -147,5 +149,10 @@ public class ReviewOne {
 
         // (3) printAllPermutation
         printAllPermutations("abc");
+
+        // (4) printWithThousandsSeparator
+        HugeInt intList = new HugeInt();
+        intList.digits.addAll(Arrays.asList(5, 4, 3, 8, 5, 6, 8, 7, 3, 1));
+        intList.printWithThousandsSeparator();
     }    
 }
