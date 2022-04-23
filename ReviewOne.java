@@ -118,6 +118,62 @@ public class ReviewOne {
         //         System.out.println(prev = word);
         //     }
         // }
+
+    }
+    
+    public static void f(int n){
+
+        if(n == 0) {
+            System.out.print("A ");
+        }
+        else {
+            System.out.print("B ");
+            f(n - 1);
+            System.out.print("C ");
+        }  
+    }
+
+    public static void g(int n, int b){
+
+        if(n < b) {
+            System.out.print(n);
+        }
+        else {
+             System.out.print(n%b);
+             g(n/b, b);
+        }
+   }
+
+   public static String f(String str){
+        int len = str.length();
+        if(len < 2) {
+            return str;
+        }
+        return f(str.substring(3*len/4)) 
+                + f(str.substring(len/2, 3*len/4)) 
+                + f(str.substring(len/4, len/2)) 
+                + f(str.substring(0, len/4));
+    }
+
+    public static void binarySearch(int low, int high, Comparable[] array, Comparable target){
+        if(low > high) {
+            System.out.printf("INDEX NOT FOUND FOR TARGET");
+        }
+
+        int mid = (int)(low / 2.0 + high / 2.0);
+        int comp = target.compareTo(array[mid]);
+
+        if(comp == 0) {
+            if(mid == 0 || array[mid - 1].compareTo(target) != 0) {
+                System.out.printf("FIRST INDEX OF TARGET: [ %d ]\n", mid);
+            } else {
+                binarySearch(low, mid - 1, array, target);
+            }
+        } else if(comp == 1) {
+            binarySearch(mid + 1, high, array, target);
+        } else {
+            binarySearch(low, mid + 1, array, target);
+        }
     }
 
     public static void main(String[] args) {
@@ -147,5 +203,13 @@ public class ReviewOne {
 
         // (3) printAllPermutation
         printAllPermutations("abc");
+
+        // (4)  Recursion QUIZ XVII
+        f(3);
+        g(85649, 10);
+        System.out.println();
+        System.out.println(f("what does the recursive method f do in this program?!!!"));
+        Comparable[] array = new Comparable[]{1, 2, 3, 3, 3, 5, 5, 5, 6, 6, 7, 7, 7, 7, 7, 8, 8, 9, 10, 10, 10, 10};
+        binarySearch(0, array.length - 1, array, 7);
     }    
 }
