@@ -215,10 +215,32 @@ public class ReviewOne {
         Comparable[] array = new Comparable[]{1, 2, 3, 3, 3, 5, 5, 5, 6, 6, 7, 7, 7, 7, 7, 8, 8, 9, 10, 10, 10, 10};
         binarySearch(0, array.length - 1, array, 7);
 
-        // (4) printWithThousandsSeparator
+        // (5) printWithThousandsSeparator
 
         HugeInt intList = new HugeInt();
         intList.digits.addAll(Arrays.asList(5, 4, 3, 8, 5, 6, 8, 7, 3, 1));
         intList.printWithThousandsSeparator();
+
+        // (6) LinkedList
+
+        LinkedList<Integer> numbers = new LinkedList<Integer>();
+        for(int i = 0; i < 5;i++) { // add numbers 0 - 4 to end of list 0 -> 1 -> 2 -> 3 -> 4
+            numbers.addLast(i); 
+        }
+
+        ListIterator<Integer> it = numbers.listIterator();
+        while(it.hasNext()) {
+            System.out.print(it.next() + (it.hasNext()?" -> ": "\n"));
+        }
+        while(it.hasPrevious()) {
+            it.previous();
+            if(it.hasPrevious()) {
+                it.previous();
+                it.remove();
+            }
+        }
+        int count = 1;
+        for(int number: numbers)
+            System.out.print(count + " : " + number + (count++ < numbers.size()? " -> ": ""));
     }    
 }
