@@ -176,6 +176,8 @@ public class ReviewOne {
         }
     }
 
+    
+
     public static void main(String[] args) {
         // (1) specialRemove 
         LinkedList<String> list = new LinkedList<String>();
@@ -205,11 +207,18 @@ public class ReviewOne {
         printAllPermutations("abc");
 
         // (4)  Recursion QUIZ XVII
+        
         f(3);
         g(85649, 10);
         System.out.println();
         System.out.println(f("what does the recursive method f do in this program?!!!"));
         Comparable[] array = new Comparable[]{1, 2, 3, 3, 3, 5, 5, 5, 6, 6, 7, 7, 7, 7, 7, 8, 8, 9, 10, 10, 10, 10};
         binarySearch(0, array.length - 1, array, 7);
+
+        // (4) printWithThousandsSeparator
+
+        HugeInt intList = new HugeInt();
+        intList.digits.addAll(Arrays.asList(5, 4, 3, 8, 5, 6, 8, 7, 3, 1));
+        intList.printWithThousandsSeparator();
     }    
 }
