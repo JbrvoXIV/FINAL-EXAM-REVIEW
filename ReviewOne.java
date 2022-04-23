@@ -179,7 +179,8 @@ public class ReviewOne {
     
 
     public static void main(String[] args) {
-        // (1) specialRemove 
+        // (1) specialRemove
+        System.out.println("\nREMOVE INDEXES OF FACTOR 5 FROM LINKED LIST QUIZ ANSWER:");
         LinkedList<String> list = new LinkedList<String>();
         list.add("1");
         list.add("2");
@@ -200,14 +201,17 @@ public class ReviewOne {
         System.out.println();
 
         // (2) findRange
+        System.out.println("\nFIND RANGE OF INDEX OF ELEMENT IN ARRAY USING BINARY SEARCH QUIZ ANSWER:");
         Comparable[] sorted = new Comparable[]{1,2,5,5,5,5,5,5,8,9,9,9,9,10,11,12};
         findRange(sorted, 4);
 
         // (3) printAllPermutation
+        System.out.println("\nRECURSIVELY PRINT PERMUTATIONS QUIZ ANSWER:");
         printAllPermutations("abc");
 
         // (4)  Recursion QUIZ XVII
         
+        System.out.println("\nRECURSIVE QUIZ XVII ANSWER:");
         f(3);
         g(85649, 10);
         System.out.println();
@@ -217,12 +221,14 @@ public class ReviewOne {
 
         // (5) printWithThousandsSeparator
 
+        System.out.println("\nREVERSE LINKED LIST ITERATING QUIZ ANSWER:");
         HugeInt intList = new HugeInt();
         intList.digits.addAll(Arrays.asList(5, 4, 3, 8, 5, 6, 8, 7, 3, 1));
         intList.printWithThousandsSeparator();
 
         // (6) LinkedList
 
+        System.out.println("\nLINKEDLIST QUIZ ANSWER:");
         LinkedList<Integer> numbers = new LinkedList<Integer>();
         for(int i = 0; i < 5;i++) { // add numbers 0 - 4 to end of list 0 -> 1 -> 2 -> 3 -> 4
             numbers.addLast(i); 
@@ -242,5 +248,21 @@ public class ReviewOne {
         int count = 1;
         for(int number: numbers)
             System.out.print(count + " : " + number + (count++ < numbers.size()? " -> ": ""));
+
+        // (7) Stack
+
+        System.out.println("\n\nSTACK QUIZ ANSWER:");
+        Stack<Integer> s = new Stack <Integer>();
+        int[] data = new int[]{ 5, 4, 6, 3, 2, 9, 13 };
+        for (int i = 0; i < data.length; i++) {
+            s.push(data[i++]);
+            if (i < data.length) {
+                s.push(data[i]);
+            } // [ 5, 4, 6, 3, 2, 9, 13 ]
+            System.out.print(s.pop() + ","); // "4,3,9,13,"
+        } // [ 5, 6, 2 ]
+        while(!s.empty()) {
+            System.out.print(s.pop()+"."); // "4,3,9,13,2.6.5."
+        }
     }    
 }
